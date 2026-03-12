@@ -452,7 +452,7 @@ class WebInput extends Input {
       <fieldset class="money__inputs">
         <label for="money" class="hidden">금액</label>
         <input type="number" class="money__input" name="money" min="1000" step="1000" placeholder="금액" />
-        <button class="money__submit">구입</button>
+        <button type="submit" class="money__submit">구입</button>
       </fieldset>
     `;
     return new Promise((resolve) => {
@@ -483,9 +483,12 @@ class WebInput extends Input {
       <div class="winning-number-and-bonus__inputs">
         <div class="winning-number__container">
           <p>당첨 번호</p>
-          <div  class="winning-number__inputs">
+          <fieldset class="winning-number__inputs">
           ${orders.map(
-      (order) => `
+      (order, index) => `
+            <label for="winning-number__${order}" class="hidden">
+              당첨 번호 ${index + 1}번째 자리
+            </label>
             <input
               type="number"
               class="winning-number__${order}__input"
@@ -496,11 +499,12 @@ class WebInput extends Input {
             />
             `
     ).join("")}
-          </div>
+          </fieldset>
         </div>
         <div class="bonus__container">
           <p>보너스 번호</p>
-          <div class="bonus__inputs">
+          <fieldset class="bonus__inputs">
+            <label for="bonus-number" class="hidden">보너스 번호</label>
             <input
               type="number"
               class="bonus-number__input"
@@ -509,7 +513,7 @@ class WebInput extends Input {
               max="${LOTTO.MAX_NUMBER}"
               step="1"
             />
-          </div>
+          </fieldset>
         </div>
       </div>
     `;
@@ -519,6 +523,7 @@ class WebInput extends Input {
     submitButtonEl.textContent = "확인";
     formEl.appendChild(submitButtonEl);
     const resultButtonEl = document.createElement("button");
+    resultButtonEl.type = "button";
     resultButtonEl.className = "show-result__button";
     resultButtonEl.textContent = "결과 확인하기";
     resultButtonEl.addEventListener("click", () => {
@@ -542,6 +547,7 @@ class WebInput extends Input {
   async readRetryAsync() {
     this.#elements.modalFooter.innerHTML = "";
     const buttonEl = document.createElement("button");
+    buttonEl.type = "button";
     buttonEl.className = "retry__button";
     buttonEl.textContent = "다시 시작";
     this.#elements.modalFooter.appendChild(buttonEl);
