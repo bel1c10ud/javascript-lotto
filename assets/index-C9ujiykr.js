@@ -449,10 +449,11 @@ class WebInput extends Input {
     this.#elements.mainContainerBody.appendChild(formEl);
     formEl.innerHTML = `
       <p>구입할 금액을 입력해주세요.</p>
-      <div class="money__inputs">
+      <fieldset class="money__inputs">
+        <label for="money" class="hidden">금액</label>
         <input type="number" class="money__input" name="money" min="1000" step="1000" placeholder="금액" />
         <button class="money__submit">구입</button>
-      </div>
+      </fieldset>
     `;
     return new Promise((resolve) => {
       formEl.addEventListener("submit", (e) => {
@@ -653,7 +654,7 @@ class ConsoleOutput2 extends Output {
     this.#elements.mainContainerBody.appendChild(containerEl);
     const paragraphEl = document.createElement("p");
     paragraphEl.className = "purchased-lottos-count";
-    paragraphEl.textContent = `총 ${lottos.length}개를 구매했습니다.`;
+    paragraphEl.textContent = `총 ${lottos.length}개를 구매하였습니다.`;
     containerEl.appendChild(paragraphEl);
     const listEl = document.createElement("ul");
     listEl.className = "purchased-lottos__list";
