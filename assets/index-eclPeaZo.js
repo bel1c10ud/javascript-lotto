@@ -579,6 +579,8 @@ class WebInput extends Input {
     this.#elements.overlay.classList.add("hidden");
   }
 }
+const lottoImg = "/javascript-lotto/assets/lotto-B--JeMZa.png";
+const closeImg = "data:image/svg+xml,%3csvg%20width='14'%20height='14'%20viewBox='0%200%2014%2014'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M14%201.41L12.59%200L7%205.59L1.41%200L0%201.41L5.59%207L0%2012.59L1.41%2014L7%208.41L12.59%2014L14%2012.59L8.41%207L14%201.41Z'%20fill='black'/%3e%3c/svg%3e";
 class ConsoleOutput2 extends Output {
   #elements;
   constructor() {
@@ -612,7 +614,7 @@ class ConsoleOutput2 extends Output {
   printResult(countsObject, returnOnInvestment) {
     this.#elements.modalHeader.innerHTML = `
       <button class="close__button">
-        <img src="/close.svg" alt="닫기" />
+        <img src="${closeImg}" alt="닫기" />
       </button>
       <h2>🏆 당첨 통계 🏆</h2>
     `;
@@ -669,7 +671,7 @@ class ConsoleOutput2 extends Output {
       ${lottos.map(
       (lotto) => `
         <li class="purchased-lotto">
-          <img src='./public/lotto.png' alt='로또' />
+          <img src="${lottoImg}" alt="로또" />
           <span>${lotto.getNumbers().join(", ")}</span>
         </li>
       `
