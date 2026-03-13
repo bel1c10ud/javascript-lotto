@@ -458,7 +458,7 @@ class WebInput extends Input {
     return new Promise((resolve) => {
       formEl.addEventListener("submit", (e) => {
         e.preventDefault();
-        const formData = new FormData(formEl);
+        const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
         this.diasbleElement(".money__input");
         this.diasbleElement(".money__submit");
