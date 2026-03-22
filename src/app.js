@@ -1,5 +1,3 @@
-import Input from "./view/Input.js";
-import Output from "./view/Output.js";
 import ConsoleInput from "./view/ConsoleInput.js";
 import ConsoleOutput from "./view/ConsoleOutput.js";
 import LottoStore from "./model/LottoStore.js";
@@ -13,9 +11,6 @@ class App {
   #lottoStore;
 
   constructor({ input, output, lottoStore } = {}) {
-    if (input) this.#validateInput(input);
-    if (output) this.#validateOutput(output);
-
     this.#view = {
       input: input ?? new ConsoleInput(),
       output: output ?? new ConsoleOutput(),
@@ -47,18 +42,6 @@ class App {
       lottoGameResult.getCounts(),
       returnOnInvestment,
     );
-  }
-
-  #validateInput(InputClass) {
-    if (!(InputClass instanceof Input)) {
-      throw new Error(ERROR_MESSAGE.INVALID_INPUT);
-    }
-  }
-
-  #validateOutput(OutputClass) {
-    if (!(OutputClass instanceof Output)) {
-      throw new Error(ERROR_MESSAGE.INVALID_OUTPUT);
-    }
   }
 
   async #askWinningNumberAndBonus() {

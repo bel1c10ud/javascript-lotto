@@ -1,14 +1,11 @@
-import Input from "./Input.js";
 import { LOTTO } from "../constant/index.js";
 import WebUtil from "../util/WebUtil.js";
 
-class WebInput extends Input {
+class WebInput {
   #webUtil;
   #elements;
 
   constructor() {
-    super();
-
     this.#webUtil = new WebUtil();
     this.#elements = {
       mainContainerBody: document.querySelector(".main__container__body"),
@@ -120,7 +117,7 @@ class WebInput extends Input {
       tagName: "form",
       className: "show-result__form",
       html: `
-        <button type="submit">결과 확인하기</button>
+        <button type="submit" class="show-result__button">결과 확인하기</button>
       `,
     });
 

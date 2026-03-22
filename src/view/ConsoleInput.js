@@ -1,12 +1,7 @@
 import readline from "readline";
-import Input from "./Input.js";
 import { INPUT_MESSAGE } from "../constant/message.js";
 
-class ConsoleInput extends Input {
-  constructor() {
-    super();
-  }
-
+class ConsoleInput {
   async readMoneyAsync() {
     return await this.#readLineAsync(INPUT_MESSAGE.PURCHASE_AMOUNT);
   }

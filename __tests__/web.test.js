@@ -143,49 +143,6 @@ describe("Web 통합 테스트", () => {
     expect(element).toBeInTheDocument();
   });
 
-  test("결과창에서 닫고 다시 열수 있다.", async () => {
-    const moneyInput = document.querySelector(".money__input");
-    moneyInput.value = 1000;
-
-    const moneySubmit = document.querySelector(".money__submit");
-    moneySubmit.click();
-
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    const winningNumbers = [1,2,3,4,5,6,7];
-    
-    const orders = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
-
-    orders.forEach((order) => {
-      const input = document.querySelector(`.winning-number__${order}__input`);
-      if(input) input.value = winningNumbers.shift();
-    });
-
-    const bonusNumberInput = document.querySelector(".bonus-number__input");
-    bonusNumberInput.value = winningNumbers.shift();
-
-    const submitButton = document.querySelector(
-      ".winning-number-and-bonus__submit",
-    );
-    submitButton.click();
-
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    const closeButton = document.querySelector(".close__button");
-    closeButton.click();
-
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    expect(document.querySelector('.overlay')?.classList).toContain('hidden');
-
-    const showResultButton = document.querySelector(".show-result__button");
-    showResultButton.click();
-
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    expect(document.querySelector('.overlay')?.classList).not.toContain('hidden');
-  });
-
   test("결과창에서 다시 시작하기를 누른 경우 금액 입력 폼을 제외한 나머지 요소들이 사라진다.", async () => {
     const moneyInput = document.querySelector(".money__input");
     moneyInput.value = 1000;

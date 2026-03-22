@@ -1,16 +1,13 @@
-import Output from "./Output.js";
 import { RANK, RANK_CONDITION, RANK_PRIZE } from "../constant/index.js";
 import lottoImg from "./../../public/lotto.png";
 import closeImg from "./../../public/close.svg";
 import WebUtil from "../util/WebUtil.js";
 
-class WebOutput extends Output {
+class WebOutput {
   #webUtil;
   #elements;
 
   constructor() {
-    super();
-
     this.#webUtil = new WebUtil();
     this.#elements = {
       mainContainerBody: document.querySelector(".main__container__body"),

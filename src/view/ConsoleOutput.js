@@ -1,11 +1,6 @@
-import Output from "./Output.js";
 import { RANK, RANK_CONDITION, RANK_PRIZE } from "../constant/index.js";
 
-class ConsoleOutput extends Output {
-  constructor() {
-    super();
-  }
-
+class ConsoleOutput {
   printError(message) {
     console.log(message)
   }

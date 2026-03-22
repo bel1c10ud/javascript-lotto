@@ -1,10 +1,7 @@
-import Input from "../../src/view/Input.js";
-
-class MockInput extends Input {
+class MockInput {
   #returnValues;
 
   constructor(returnValues = []) {
-    super();
     this.#returnValues = [...returnValues];
   }
 

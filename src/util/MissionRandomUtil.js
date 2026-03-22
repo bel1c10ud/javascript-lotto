@@ -1,11 +1,9 @@
-import RandomUtil from "./RandomUtil.js";
 import { LOTTO } from "../constant/index.js";
 
-class MissionRandomUtil extends RandomUtil {
+class MissionRandomUtil {
   #randomNumberGenerator;
 
   constructor() {
-    super();
     this.#randomNumberGenerator = () =>
       Math.floor(
         Math.random() * (LOTTO.MAX_NUMBER - LOTTO.MIN_NUMBER) +

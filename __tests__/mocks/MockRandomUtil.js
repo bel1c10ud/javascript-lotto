@@ -1,13 +1,11 @@
-import RandomUtil from "../../src/util/RandomUtil.js";
 import { LOTTO } from "../../src/constant/index.js";
 import { ERROR_MESSAGE } from "../../src/constant/message.js";
 
-class MockRandomUtil extends RandomUtil {
+class MockRandomUtil {
   #returnValues;
   #index = 0;
 
   constructor(returnValues = []) {
-    super();
     this.#returnValues = [...returnValues];
   }
 
